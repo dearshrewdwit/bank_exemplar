@@ -9,4 +9,5 @@ account.withdraw(500)
 
 statement = Statement.create_from(account.transactions)
 
-puts statement
+display = Display.new
+display.print(statement)

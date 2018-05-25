@@ -17,8 +17,11 @@ RSpec.describe 'Bank Tech Test' do
       account.deposit(2000)
       account.withdraw(500)
       statement = Statement.create_from(account.transactions)
+      output = StringIO.new
+      display = Display.new(output)
+      display.print(statement)
 
-      expect { puts statement }.to output(expected_output).to_stdout
+      expect(output.string).to eq(expected_output)
     end
   end
 end
